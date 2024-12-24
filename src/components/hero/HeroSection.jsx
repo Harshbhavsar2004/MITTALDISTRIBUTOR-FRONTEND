@@ -22,8 +22,9 @@ export function HeroSection() {
       <div className="relative flex items-end px-10 pb-10 w-full h-screen max-md:px-5 max-md:pb-6"
       style={{
         backgroundImage: 'url("/BackgroundImage.png")', // Set your background image here
-        backgroundSize: 'contain', // Ensures the image covers the entire area
+        backgroundSize: 'cover', // Ensures the image covers the entire area
         backgroundPosition: 'center', // Centers the image
+        backgroundRepeat: "no-repeat"
         
       }}
       >
