@@ -43,8 +43,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex flex-row justify-center items-end">
-              <h1 className="text-red-600 text-center text-4xl font-bold">M<span className="text-[#17195A]">D</span></h1>
-              <span className="text-xl">MittalDistributos.</span>
+              <img src="/MDS_logo.png" alt="MittalDistributors Logo" className="h-10" />
             </div>
             
             {/* Navigation Links */}
