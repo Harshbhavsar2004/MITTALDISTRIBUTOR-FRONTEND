@@ -22,11 +22,6 @@ export default function Navbar() {
     checkLoginStatus();
   }, []);
 
-  const copyPhoneNumber = () => {
-    navigator.clipboard.writeText(phoneNumber);
-    alert("Phone number copied to clipboard!");
-  };
-
   const handleLogout = async () => {
     setIsLoggingOut(true); // Start showing the loading indicator
     await new Promise(resolve => setTimeout(resolve, 2000)); // Delay for 2 seconds
@@ -42,8 +37,9 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <div className="flex flex-row justify-center items-end">
-              <img src="/MDS_logo.png" alt="MittalDistributors Logo" className="h-10" />
+            <div className="flex flex-row justify-center items-center">
+              <img src="/MD_logo1.png" alt="MittalDistributors Logo" className="h-20" />
+              <span className="text-xl font-bold mt-2 ml-1">MittalDistributors.</span>
             </div>
             
             {/* Navigation Links */}
@@ -63,7 +59,7 @@ export default function Navbar() {
             
             {/* Call Us Button */}
             <div className="hidden md:block mr-2 justify-end">
-              <Button onClick={copyPhoneNumber} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600">
+              <Button onClick={() => window.location.href = `tel:${phoneNumber}`} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Us
               </Button>
@@ -105,12 +101,12 @@ export default function Navbar() {
               <Link to="/contact" className="text-gray-800 hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">
                 Contact Us
               </Link>
-              <Button onClick={copyPhoneNumber} className="w-40 justify-start text-left px-3 py-2 rounded-md text-base font-medium text-white bg-red-600 hover:bg-yellow-700">
+              <Button onClick={() => window.location.href = `tel:${phoneNumber}`} className="w-40 justify-start text-left px-3 py-2 rounded-md text-base font-medium text-white bg-red-600 hover:bg-yellow-700">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Us
               </Button>
-              <Button onClick={isLoggedIn ? handleLogout : () => setIsOpen(!isOpen)} className="w-40 ml-2 justify-start text-left px-3 py-2 rounded-md text-base font-medium text-black bg-white hover:bg-yellow-700">
-                {isLoggedIn ? <><LogOut className="mr-2 h-4 w-4" /> Logout</> : <><User className="mr-2 h-4 w-4" /> Login</>}
+              <Button onClick={isLoggedIn ? handleLogout : () => navigate("/login")} className="ml-5 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#17195A]">
+                {isLoggingOut ? 'Logging Out...' : (isLoggedIn ? <><LogOut className="mr-2 h-4 w-4" /> Logout</> : <><User className="mr-2 h-4 w-4" /> Login</>)}
               </Button>
             </div>
           </div>

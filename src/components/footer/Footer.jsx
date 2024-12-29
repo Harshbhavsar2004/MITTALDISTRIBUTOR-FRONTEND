@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FooterLinks } from "./FooterLinks";
 import { LegalLinks } from "./LegalLinks";
+import { Linkedin } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,6 @@ export function Footer() {
               className="object-contain bg-blend-luminosity w-20 rounded"
             />
           </a>
-          <FooterLinks />
         </div>
       </div>
       <div
@@ -35,10 +35,14 @@ export function Footer() {
           className="object-contain w-full aspect-[500]"
         />
       </div>
-      <div className="flex flex-wrap gap-10 justify-between items-start mt-14 w-full text-xs tracking-wide leading-none text-neutral-400 max-md:mt-10 max-md:max-w-full">
+      <a href="https://www.linkedin.com/company/mittal-distributors/" target="_blank" rel="noopener noreferrer" className="mt-4">
+            <img src="/linkedin_icon-removebg-preview.png" alt="LinkedIn" className="h-12 rounded w-12" />
+          </a>
+
+      <div className="flex flex-wrap gap-x-10  justify-between items-start mt-6 w-full text-xs tracking-wide leading-none text-neutral-400 max-md:mt-10 max-md:max-w-full">
         <LegalLinks />
         <div className="text-right">
-          Copyright {currentYear} - Solidarity Solar Ltd
+          Copyright {currentYear} - Mittal Distributor 
         </div>
       </div>
     </footer>

@@ -15,6 +15,7 @@ import { SignupForm } from './pages/LoginDialog/signup';
 import ProtectedRoute from './pages/LoginDialog/ProtectedRoute';
 import { UsersTable } from './pages/admin/users/Users';
 import LoadingAnimation from './pages/loader/loader';
+import SlidingNav from './components/hero/sidesection';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -39,6 +40,8 @@ function App() {
   }
 
   return (
+    <>
+    <SlidingNav/>
     <Router>
       <Routes>
         <Route path="/" element={<HeroSection />} />
@@ -55,6 +58,7 @@ function App() {
         <Route path='/setting' element={<ProtectedRoute><UsersTable /></ProtectedRoute>} />
       </Routes>
     </Router>
+    </>
   );
 }
 

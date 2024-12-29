@@ -1,6 +1,5 @@
 import * as React from "react";
 import { CallToActionButton } from "./CallToActionButton";
-import FloatingMenu from "./sidesection";
 import Navbar from "../navigation/navbar";
 import { WhyChooseUs } from "../whyChooseUs/WhyChooseUs";
 import { Footer } from "../footer/Footer";
@@ -40,7 +39,6 @@ export function HeroSection() {
               </a>
             ))}
           </div>
-          <FloatingMenu />
         </div>
       </div>
       <WhyChooseUs/>
