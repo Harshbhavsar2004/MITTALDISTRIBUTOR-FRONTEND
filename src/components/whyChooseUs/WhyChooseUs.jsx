@@ -14,7 +14,7 @@ export function WhyChooseUs() {
               </div>
               <div className="mt-11 text-base leading-6 text-neutral-700 max-md:mt-10">
                 Whether you're looking to switch to solar energy or upgrade your
-                cable services, our sales and marketing company is here to help.
+                procurement services, our sales and marketing company is here to help.
               </div>
             </div>
           </div>

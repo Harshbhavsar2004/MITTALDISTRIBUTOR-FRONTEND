@@ -17,7 +17,7 @@ export default function ContactForm() {
         const formData = { name, email, phone, message }
 
         try {
-            const response = await fetch('https://backend-mu-orpin.vercel.app/api/contacts', {
+            const response = await fetch('http://localhost:5000/api/contacts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -65,7 +65,7 @@ export default function ContactForm() {
                                     </div>
                                     <div className="flex flex-col md:flex-row md:items-center gap-2">
                                         <span className="font-medium md:w-32">Phone Number</span>
-                                        <span className="text-sm md:text-base">+91 94037 27364</span>
+                                        <span className="text-sm md:text-base">+91 84215 90088</span>
                                     </div>
                                     <div className="flex flex-col md:flex-row md:items-center gap-2">
                                         <span className="font-medium md:w-32">Address</span>
@@ -77,7 +77,7 @@ export default function ContactForm() {
                             {/* Map */}
                             <div className="my-6 md:my-10 w-full h-48 md:h-64">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3779.925992284791!2d74.7728634!3d20.890982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdec5f9f7633e83%3A0xa2a2d96fee1f888!2sMITTAL%20DISTRIBUTORS!5e0!3m2!1sen!2sin!4v1694609923741!5m2!1sen!2sin"
+                                    src="https://www.google.com/maps/@20.8386088,74.7519291,99m/data=!3m1!1e3?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
                                     title="Mittal Distributors Location"
