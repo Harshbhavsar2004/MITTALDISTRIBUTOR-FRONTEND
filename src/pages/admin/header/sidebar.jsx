@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LayoutDashboard, Users, Calendar, User, LogOut, Settings } from "lucide-react";
+import { LayoutDashboard, Users, Calendar, User, LogOut, Settings, GitPullRequest } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export function Sidebar({ children }) {
@@ -53,6 +53,12 @@ function SidebarMenu({ isLoggingOut, setIsLoggingOut }) {
           isActive={location.pathname === "/consumers"}
           icon={<Users className="mr-2 h-4 w-4" />}
           label="Consumers"
+        />
+        <SidebarItem
+          to="/adminjoinourteam"
+          isActive={location.pathname === "/adminjoinourteam"}
+          icon={<GitPullRequest className="mr-2 h-4 w-4" />}
+          label="Join Request"
         />
         <SidebarItem
           to="/setting"

@@ -16,6 +16,8 @@ import ProtectedRoute from './pages/LoginDialog/ProtectedRoute';
 import { UsersTable } from './pages/admin/users/Users';
 import LoadingAnimation from './pages/loader/loader';
 import SlidingNav from './components/hero/sidesection';
+import ApplicationsTable from './pages/admin/joinourteam/adminjoinourteam';
+import ScrollToTop from './components/scrolltop/Scrolltop';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,6 +45,7 @@ function App() {
     <>
     <SlidingNav/>
     <Router>
+      <ScrollToTop/>
       <Routes>
         <Route path="/" element={<HeroSection />} />
         <Route path='/login' element={<LoginPage/>}/>
@@ -56,6 +59,7 @@ function App() {
         <Route path='/consultations' element={<ProtectedRoute><ConsultationsPage /></ProtectedRoute>} />
         <Route path='/consumers' element={<ProtectedRoute><ConsumerDetailsPage /></ProtectedRoute>} />
         <Route path='/setting' element={<ProtectedRoute><UsersTable /></ProtectedRoute>} />
+        <Route path='/adminjoinourteam' element={<ProtectedRoute><ApplicationsTable /></ProtectedRoute>} />
       </Routes>
     </Router>
     </>

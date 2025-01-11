@@ -19,7 +19,7 @@ const navItems = [
     icon: <MapPin className="h-6 w-6" />,
     label: "Location",
     content: "Location",
-    href: "https://maps.google.com",
+    href: "https://maps.app.goo.gl/m2HEfeyaTjjdXn9T7",
   },
   {
     icon: <Mail className="h-6 w-6" />,

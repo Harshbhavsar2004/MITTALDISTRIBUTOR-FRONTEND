@@ -1,12 +1,11 @@
-'use client'
-
 import { useEffect, useRef } from 'react'
-import { Battery, Home, Sun } from 'lucide-react'
+import { Battery, Home, Sun , Mail} from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Navbar from '@/components/navigation/navbar'
-import { Footer } from '@/components/footer/Footer'
-
+import Footer from '@/components/footer/Footer'
+import { Button } from '@/components/ui/button'
+import { useNavigate } from 'react-router-dom'
 gsap.registerPlugin(ScrollTrigger)
 
 
@@ -137,28 +136,70 @@ function SolarCard({ logo, image, title, application, range, efficiency, index }
   );
 }
 
+function RequestQuoteCard() {
+  const cardRef = useRef(null);
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    const card = cardRef.current;
+
+    gsap.fromTo(
+      card,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom-=100",
+          toggleActions: "play none none none",
+        },
+      }
+    );
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-lg p-8 flex flex-col justify-center items-center text-white text-center"
+    >
+      <Mail className="w-16 h-16 mb-6" />
+      <h3 className="text-2xl font-bold mb-4">Ready to Harness the Power of the Sun?</h3>
+      <p className="text-lg mb-6">Get a personalized quote for your solar energy needs and start saving today!</p>
+      <Button onClick={() => navigate("/contact")} variant="secondary" size="lg" className="font-semibold">
+        Request a Quote
+      </Button>
+    </div>
+  );
+}
 
 export default function SolarCardsGrid() {
   return (
-    <div >
+    <div>
       <Navbar />
       <div className="relative min-h-screen bg-gray-50 p-6">
         <div
           className="absolute inset-0 bg-black opacity-40"
           style={{
-            backgroundImage: "url('/skyimage.jpg')",
+            backgroundImage: "url('/solar-image-bg.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         ></div>
-        <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {solarData.map((card, index) => (
             <SolarCard key={index} {...card} index={index} />
           ))}
+          <RequestQuoteCard />
         </div>
       </div>
-
       <Footer />
     </div>
   )

@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import Navbar from "@/components/navigation/navbar";
-import { Footer } from "@/components/footer/Footer";
+import Footer from "@/components/footer/Footer";
 export function SignupForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

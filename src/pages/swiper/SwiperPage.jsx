@@ -66,9 +66,6 @@ export default function TestimonialSection() {
         <div className="space-y-6">
           <Quote className="h-12 w-12 text-yellow-600" />
           <h2 className="text-4xl font-bold tracking-tight">What they say about Mittal Distributors</h2>
-          <p className="text-gray-600 text-lg">
-            More than 3000 users have been helped by World Online Course.
-          </p>
         </div>
 
         {/* Right Column - Testimonial Carousel */}

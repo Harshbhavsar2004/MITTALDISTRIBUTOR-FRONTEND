@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Phone } from "lucide-react";
 import { Sidebar } from "../header/sidebar";
+import ApplicationsTable from "../joinourteam/adminjoinourteam";
 
 export default function Dashboard() {
   const [dailyConsultations, setDailyConsultations] = useState(0);
   const [dailyContacts, setDailyContacts] = useState(0);
+  const [applications, setApplications] = useState([]);
 
   useEffect(() => {
     const fetchDailyCalls = async () => {
@@ -15,7 +17,21 @@ export default function Dashboard() {
       setDailyContacts(data.dailyContacts);
     };
 
+    const fetchApplications = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/job-applications');
+        if (!response.ok) {
+          throw new Error('Failed to fetch applications');
+        }
+        const data = await response.json();
+        setApplications(data);
+      } catch (error) {
+        console.error("Failed to fetch applications:", error);
+      }
+    };
+
     fetchDailyCalls();
+    fetchApplications();
   }, []);
 
   return (

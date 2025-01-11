@@ -4,14 +4,16 @@ import { Phone, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Headroom from "react-headroom";
 import MainNav from "./mainnav";
-import { fetchUserDetails } from "@/utils/auth"; // Ensure this import path is correct
+import { fetchUserDetails } from "@/utils/auth";
+import toast from 'react-hot-toast';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const phoneNumber = "9403727364"; // Replace with your actual phone number
+  const phoneNumber = "84215 90088"; 
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false); // State to handle logout loading
+  const [isLoggingOut, setIsLoggingOut] = useState(false); 
+  const [showNumber, setShowNumber] = useState(false); 
 
   useEffect(() => {
     async function checkLoginStatus() {
@@ -29,6 +31,15 @@ export default function Navbar() {
     setIsLoggedIn(false);
     setIsLoggingOut(false); // Stop showing the loading indicator
     navigate('/');
+  };
+
+  const copyPhoneNumber = () => {
+    navigator.clipboard.writeText(phoneNumber)
+      .then(() => {
+        toast.success('Phone number copied!');
+        setShowNumber(false); // Optionally hide the number after copying
+      })
+      .catch(err => toast.error('Failed to copy phone number'));
   };
 
   return (
@@ -59,10 +70,17 @@ export default function Navbar() {
             
             {/* Call Us Button */}
             <div className="hidden md:block mr-2 justify-end">
-              <Button onClick={() => window.location.href = `tel:${phoneNumber}`} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600">
+              <Button onClick={() => setShowNumber(true)} className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Us
               </Button>
+              {/* Optionally show phone number */}
+              {showNumber && (
+                <div className="absolute mt-2 p-2 flex justify-center flex-col bg-white border rounded shadow-lg">
+                  <p>{phoneNumber}</p>
+                  <button onClick={copyPhoneNumber} className="text-xs text-center mt-2 text-blue-500">Copy</button>
+                </div>
+              )}
               <Button onClick={isLoggedIn ? handleLogout : () => navigate("/login")} className="ml-5 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#17195A]">
                 {isLoggingOut ? 'Logging Out...' : (isLoggedIn ? <><LogOut className="mr-2 h-4 w-4" /> Logout</> : <><User className="mr-2 h-4 w-4" /> Login</>)}
               </Button>
@@ -101,10 +119,17 @@ export default function Navbar() {
               <Link to="/contact" className="text-gray-800 hover:text-gray-600 block px-3 py-2 rounded-md text-base font-medium">
                 Contact Us
               </Link>
-              <Button onClick={() => window.location.href = `tel:${phoneNumber}`} className="w-40 justify-start text-left px-3 py-2 rounded-md text-base font-medium text-white bg-red-600 hover:bg-yellow-700">
+              <Button onClick={() => setShowNumber(true)} className="w-40 justify-start text-left px-3 py-2 rounded-md text-base font-medium text-white bg-red-600 hover:bg-yellow-700">
                 <Phone className="mr-2 h-4 w-4" />
                 Call Us
               </Button>
+              {/* Optionally show phone number */}
+              {showNumber && (
+                <div className="absolute right-0 mt-2 p-2 bg-white border rounded shadow-lg">
+                  <p>{phoneNumber}</p>
+                  <button onClick={copyPhoneNumber} className="text-xs text-blue-500">Copy</button>
+                </div>
+              )}
               <Button onClick={isLoggedIn ? handleLogout : () => navigate("/login")} className="ml-5 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#17195A]">
                 {isLoggingOut ? 'Logging Out...' : (isLoggedIn ? <><LogOut className="mr-2 h-4 w-4" /> Logout</> : <><User className="mr-2 h-4 w-4" /> Login</>)}
               </Button>
