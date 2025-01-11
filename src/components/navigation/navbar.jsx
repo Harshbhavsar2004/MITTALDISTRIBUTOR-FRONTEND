@@ -125,7 +125,7 @@ export default function Navbar() {
               </Button>
               {/* Optionally show phone number */}
               {showNumber && (
-                <div className="absolute right-0 mt-2 p-2 bg-white border rounded shadow-lg">
+                <div className="absolute left-0 mt-2 p-2 bg-white border rounded shadow-lg">
                   <p>{phoneNumber}</p>
                   <button onClick={copyPhoneNumber} className="text-xs text-blue-500">Copy</button>
                 </div>
