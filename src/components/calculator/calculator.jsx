@@ -91,7 +91,7 @@ export default function ConsultationForm() {
       type: type
     };
 
-    fetch('https://backend-mu-orpin.vercel.app//api/consultations/submit', {
+    fetch('https://backend-mu-orpin.vercel.app/api/consultations/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

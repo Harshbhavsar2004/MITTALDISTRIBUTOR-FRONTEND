@@ -14,7 +14,7 @@ export function UsersTable() {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch('https://backend-mu-orpin.vercel.app//api/users')
+        fetch('https://backend-mu-orpin.vercel.app/api/users')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok')
@@ -26,7 +26,7 @@ export function UsersTable() {
     }, [])
     console.log(users)
     const promoteToAdmin = (userId) => {
-        fetch(`https://backend-mu-orpin.vercel.app//api/users/${userId}`, {
+        fetch(`https://backend-mu-orpin.vercel.app/api/users/${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

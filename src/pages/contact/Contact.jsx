@@ -17,7 +17,7 @@ export default function ContactForm() {
     const formData = { name, email, phone, message };
 
     try {
-      const response = await fetch("https://backend-mu-orpin.vercel.app//api/contacts", {
+      const response = await fetch("https://backend-mu-orpin.vercel.app/api/contacts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
