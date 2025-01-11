@@ -54,7 +54,7 @@ export default function EnhancedJoinOurTeamForm() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/job-applications/submit",
+        "https://backend-mu-orpin.vercel.app//api/job-applications/submit",
         {
           method: "POST",
           headers: {
