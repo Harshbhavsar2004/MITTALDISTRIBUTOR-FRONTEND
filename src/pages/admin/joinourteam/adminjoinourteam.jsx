@@ -17,7 +17,7 @@ export default function ApplicationsTable() {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await fetch('https://backend-mu-orpin.vercel.app/api/job-applications')
+        const response = await fetch('https://mittaldistributor-backend.vercel.app//api/job-applications')
         if (!response.ok) {
           throw new Error('Failed to fetch applications')
         }
