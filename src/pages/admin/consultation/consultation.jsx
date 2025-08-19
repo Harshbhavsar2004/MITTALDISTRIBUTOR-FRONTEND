@@ -15,7 +15,7 @@ export default function ConsultationsPage() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('https://mittaldistributor-backend.vercel.app//api/consultations')
+    fetch('https://mittaldistributor-backend.vercel.app/api/consultations')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -35,7 +35,7 @@ export default function ConsultationsPage() {
   console.log(consultations);
   
   const deleteConsultation = (id) => {
-    fetch(`https://mittaldistributor-backend.vercel.app//api/consultations/${id}`, {
+    fetch(`https://mittaldistributor-backend.vercel.app/api/consultations/${id}`, {
       method: 'DELETE',
     })
     .then(response => {

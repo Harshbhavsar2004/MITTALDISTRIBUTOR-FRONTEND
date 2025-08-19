@@ -91,7 +91,7 @@ export default function ConsultationForm() {
       type: type
     };
 
-    fetch('https://mittaldistributor-backend.vercel.app//api/consultations/submit', {
+    fetch('https://mittaldistributor-backend.vercel.app/api/consultations/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

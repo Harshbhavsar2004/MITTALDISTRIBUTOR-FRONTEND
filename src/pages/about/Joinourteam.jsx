@@ -54,7 +54,7 @@ export default function EnhancedJoinOurTeamForm() {
 
     try {
       const response = await fetch(
-        "https://mittaldistributor-backend.vercel.app//api/job-applications/submit",
+        "https://mittaldistributor-backend.vercel.app/api/job-applications/submit",
         {
           method: "POST",
           headers: {

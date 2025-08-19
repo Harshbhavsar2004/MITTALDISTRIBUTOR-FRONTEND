@@ -8,7 +8,7 @@ export default function ConsumerDetailsPage() {
   useEffect(() => {
     const fetchConsumers = async () => {
       try {
-        const response = await fetch('https://mittaldistributor-backend.vercel.app//api/contacts/getcontacts');
+        const response = await fetch('https://mittaldistributor-backend.vercel.app/api/contacts/getcontacts');
         const data = await response.json();
         console.log(data);
         
